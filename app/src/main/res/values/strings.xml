@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">rv-ani</string>
+    <string name="to_common_decoration">To Common Decoration</string>
+    <string name="to_tag_decoration">To Tag Decoration</string>
+    <string name="add">ADD</string>
+    <string name="remove">REMOVE</string>
+</resources>
