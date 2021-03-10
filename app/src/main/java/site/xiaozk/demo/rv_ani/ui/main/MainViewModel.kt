@@ -1,6 +1,7 @@
 package site.xiaozk.demo.rv_ani.ui.main
 
 import android.graphics.Color
+import android.util.Log
 import androidx.annotation.ColorInt
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,14 +28,17 @@ class MainViewModel : ViewModel() {
     }
 
     fun addData() {
-        dataList.add(generateData())
+        val data = generateData()
+        dataList.add(data)
+        Log.d("MainViewModel", "Adding data $data to last")
         notifyData()
     }
 
     fun removeRandom() {
         if (dataList.isNotEmpty()) {
             val index = random.nextInt(dataList.size)
-            dataList.removeAt(index)
+            val data = dataList.removeAt(index)
+            Log.d("MainViewModel", "Removing data $data at $index")
             notifyData()
         }
     }
@@ -54,4 +58,8 @@ val colorList = arrayOf(
 data class Data(
     val content: String,
     @ColorInt val color: Int
-)
+) {
+    override fun toString(): String {
+        return "Data(content=$content, color=#${String.format("%06x", color)}"
+    }
+}

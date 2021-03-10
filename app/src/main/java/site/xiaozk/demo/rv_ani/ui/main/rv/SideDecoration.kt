@@ -7,6 +7,7 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
 import site.xiaozk.demo.rv_ani.R
@@ -27,8 +28,15 @@ class SideDecoration(context: Context, private val dataGetter: ((Int) -> Data?))
         parent.children.map {
             it to parent.getChildAdapterPosition(it)
         }.map { (view, index) ->
+            val data = dataGetter(index)
             Log.d("SideDecoration", "getting data to draw of index $index")
-            view to dataGetter(index)
+            if (data == null) {
+                Log.w(
+                    "SideDecoration",
+                    "Data null!! view data ${view.findViewById<TextView>(R.id.title).text}"
+                )
+            }
+            view to data
         }.map { (view, data) ->
             RectF(
                 0f,
@@ -52,6 +60,12 @@ class SideDecoration(context: Context, private val dataGetter: ((Int) -> Data?))
         val index = parent.getChildAdapterPosition(view)
         Log.d("SideDecoration", "getting offset of index $index")
         val data = dataGetter(index)
+        if (data == null) {
+            Log.w(
+                "SideDecoration",
+                "Data null!! view data ${view.findViewById<TextView>(R.id.title).text}"
+            )
+        }
         data?.let {
             outRect.left = padding
         }
