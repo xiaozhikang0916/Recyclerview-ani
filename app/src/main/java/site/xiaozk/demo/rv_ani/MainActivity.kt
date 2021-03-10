@@ -28,7 +28,9 @@ class MainActivity : AppCompatActivity() {
             it.onNavDestinationSelected(navController)
         }
 
-        binding.drawerLayout.showContextMenu()
+        binding.drawerLayout.open()
+
+        supportActionBar?.setTitle(R.string.home_title)
     }
 
     override fun onBackPressed() {

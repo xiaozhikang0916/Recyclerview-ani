@@ -4,4 +4,7 @@
     <string name="to_tag_decoration">To Tag Decoration</string>
     <string name="add">ADD</string>
     <string name="remove">REMOVE</string>
+    <string name="tag_title">TagFragment</string>
+    <string name="common_title">CommonFragment</string>
+    <string name="home_title">Home</string>
 </resources>

@@ -7,15 +7,15 @@
     <fragment
         android:id="@+id/comm_fragment"
         android:name="site.xiaozk.demo.rv_ani.ui.main.CommonFragment"
-        android:label="CommonFragment" />
+        android:label="@string/common_title" />
     <fragment
         android:id="@+id/tag_fragment"
         android:name="site.xiaozk.demo.rv_ani.ui.main.TagFragment"
-        android:label="TagFragment" />
+        android:label="@string/tag_title" />
     <fragment
         android:id="@+id/nav_host_fragment_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:label="Home">
+        android:label="@string/home_title">
         <action
             android:id="@+id/action_placeholder_to_commFragment"
             app:destination="@id/comm_fragment" />
